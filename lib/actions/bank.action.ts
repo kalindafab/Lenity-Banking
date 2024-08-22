@@ -14,6 +14,7 @@ import { parseStringify } from "../utils";
 
 
 import { getBank, getBanks } from "./user.action";
+import { getTransactionsByBankId } from "./transaction.action";
 
 
 // Get multiple bank accounts
@@ -125,7 +126,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
       transactions: allTransactions,
     });
   } catch (error) {
-    console.error("An error occurred while getting the account:", error);
+    console.error("An error is occurred while getting the account:", error);
   }
 };
 

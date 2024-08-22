@@ -7,7 +7,7 @@ import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
 import { CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestProcessorEnum, Products } from "plaid";
 import { plaidClient } from "../plaid";
 import { revalidatePath } from "next/cache";
-import { addFundingSource, createDwollaCustomer } from "../dwolla.actions";
+import { addFundingSource, createDwollaCustomer } from "./dwolla.actions";
 import { error } from "console";
 
 const {
@@ -147,7 +147,7 @@ export const createBankAccount = async ({
   accountId,
   accessToken,
   fundingSourceUrl,
-  shareableId,
+  sharableId,
 }: createBankAccountProps) => {
   try {
     const { database } = await createAdminClient();
@@ -162,7 +162,7 @@ export const createBankAccount = async ({
         accountId,
         accessToken,
         fundingSourceUrl,
-        shareableId,
+        sharableId,
       }
     )
 
@@ -213,7 +213,7 @@ export const exchangePublicToken = async ({
        accountId: accountData.account_id,
        accessToken,
        fundingSourceUrl,
-       shareableId: encryptId(accountData.account_id),
+       sharableId: encryptId(accountData.account_id),
      });
 
      revalidatePath("/");
