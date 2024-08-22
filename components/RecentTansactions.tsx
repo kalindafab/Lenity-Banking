@@ -49,7 +49,8 @@ const RecentTansactions = ({
               type="full"
             />
 
-            <TransactionsTable transactions={transactions} />
+            <TransactionsTable 
+            transactions={transactions} />
             
 
             {/* {totalPages > 1 && (
